@@ -1,3 +1,5 @@
+//def componentName = project.getName().startsWith("module-") ? project.getName().substring(0, "module-".length()) :
+
 if (isBuildModule.toBoolean()) {
     apply plugin: 'com.android.application'
 } else {
@@ -23,7 +25,7 @@ android {
         testInstrumentationRunner rootProject.ext.dependencies["androidJUnitRunner"]
         javaCompileOptions {
             annotationProcessorOptions {
-                arguments = [moduleName: project.getName()]
+                arguments = [AROUTER_MODULE_NAME: project.getName()]
                 includeCompileClasspath true
             }
         }
